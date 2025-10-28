@@ -1,10 +1,7 @@
 import { faker } from '@faker-js/faker';
-import { canciones } from './canciones.controller.js'; // importamos el array real
+import { canciones } from './canciones.controller.js';
 
-// Función para generar una playlist usando canciones existentes
 function generarPlaylist() {
-
-  // Seleccionamos canciones aleatorias del catálogo existente
   const cancionesAleatorias = [];
   for (let i = 0; i < 5; i++) {
     const cancionRandom = faker.helpers.arrayElement(canciones);
@@ -21,10 +18,8 @@ function generarPlaylist() {
   };
 }
 
-// Creamos unas playlists
 const playlists = Array.from({ length: 3 }, generarPlaylist);
 
-// Controlador de playlists
 const controladorPlaylists = {
   obtenerTodas: (req, res) => {
     res.status(200).json(playlists);
